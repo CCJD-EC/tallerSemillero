@@ -25,4 +25,10 @@ public class ServicioBase {
 			System.out.println("Error al cerrar la conexion");
 		}
 	}
+
+	public Connection getConexion() {
+		return conexion;
+	}
+	
+	
 }
