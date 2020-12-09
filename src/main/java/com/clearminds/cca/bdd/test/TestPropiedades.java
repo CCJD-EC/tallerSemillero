@@ -1,4 +1,4 @@
-package com.clearminds.bdd.test;
+package com.clearminds.cca.bdd.test;
 
 import com.clearminds.cca.bdd.ConexionBDD;
 
