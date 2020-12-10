@@ -12,13 +12,14 @@ import java.sql.SQLException;
 import com.clearminds.cca.excepciones.BDDException;
 
 public class ConexionBDD {
-	public static String directorio = "./conexion.properties";
+	public static String directorio = "/home/cris-pc/Desktop/TallerClearMinds/tallerSemillero/conexion.properties";
 
 	public static String leerPropiedad(String nombre) {
+
 		File f = new File(directorio);
+
 		BufferedReader br = null;
 		FileReader fr = null;
-
 		try {
 			fr = new FileReader(f);
 			br = new BufferedReader(fr);
@@ -26,6 +27,7 @@ public class ConexionBDD {
 			String valor = "";
 
 			while ((linea = br.readLine()) != null) {
+				
 				String[] propiedad = linea.split(":", 2);
 				if (propiedad[0].equals(nombre))
 					return propiedad[1];
@@ -53,13 +55,14 @@ public class ConexionBDD {
 		String urlConexion = leerPropiedad("urlConexion");
 		Connection connection = null;
 		try {
-			//System.out.print("Connecting to SQL Server ... ");
+			System.out.print("Connecting to SQL Server ... ");
+			System.out.print(" "+usuario+" "+password+" "+urlConexion);
 			connection = DriverManager.getConnection(urlConexion + ";user=" + usuario + ";password=" + password);
-			//System.out.println("Done.");
+			System.out.println("Done.");
 			return connection;
 
 		} catch (SQLException se) {
-			throw new BDDException("No se pudo conectar a la base de datos.");
+			throw new BDDException("No se pudo conectar a la base de datos." +se.getMessage());
 		} catch (Exception e) {
 			System.out.println("Error, consulte al administador");
 			e.printStackTrace();

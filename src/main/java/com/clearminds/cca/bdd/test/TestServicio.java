@@ -8,7 +8,7 @@ public class TestServicio {
 	public static void main(String[] args) {
 		ServicioEstudiante serEstudiante = new ServicioEstudiante();
 		try {
-			serEstudiante.insertarEstudiante(new Estudiante("Marcos", "Milena"));
+			serEstudiante.actualizarEstudiante(new Estudiante("Milo", "Martinez",2));
 		} catch (Exception e) {
 			e.printStackTrace();
 			e.getMessage();
