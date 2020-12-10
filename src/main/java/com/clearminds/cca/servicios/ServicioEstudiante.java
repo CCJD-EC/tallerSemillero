@@ -21,6 +21,7 @@ public class ServicioEstudiante extends ServicioBase{
 			String sql = "insert into estudiantes(nombre,apellido) values('"
 					+estudiante.getNombre()+"','"+estudiante.getApellido()+"')";
 			
+			
 			System.out.println("Script: "+sql);
 			
 			st.executeUpdate(sql);
@@ -42,7 +43,8 @@ public class ServicioEstudiante extends ServicioBase{
 			
 			String sql = "update estudiantes set nombre='"
 					+estudiante.getNombre()+"',apellido='"
-					+estudiante.getApellido()+"'"
+					+estudiante.getApellido()+"',edad="
+					+estudiante.getEdad()
 					+"where id="+estudiante.getId();
 			
 			System.out.println("Script: "+sql);
